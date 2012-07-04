@@ -45,7 +45,7 @@ AVAILABLE_LOCALES = (
 """ The available locales """
 
 # runs the external imports
-web_mvc_utils = colony.libs.import_util.__import__("web_mvc_utils")
+mvc_utils = colony.libs.import_util.__import__("mvc_utils")
 
 class MainController:
     """
