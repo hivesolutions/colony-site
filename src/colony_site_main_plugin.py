@@ -51,15 +51,15 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
     description = "The plugin that offers the colony web site"
     version = "1.0.0"
     author = "Hive Solutions Lda. <development@hive.pt>"
-    loading_type = colony.base.plugin_system.EAGER_LOADING_TYPE
+    loading_type = colony.base.system.EAGER_LOADING_TYPE
     platforms = [
-        colony.base.plugin_system.CPYTHON_ENVIRONMENT
+        colony.base.system.CPYTHON_ENVIRONMENT
     ]
     capabilities = [
         "web.mvc_service"
     ]
     dependencies = [
-        colony.base.plugin_system.PluginDependency("pt.hive.colony.plugins.web.mvc.utils", "1.x.x")
+        colony.base.system.PluginDependency("pt.hive.colony.plugins.web.mvc.utils", "1.x.x")
     ]
     main_modules = [
         "colony_site.main.system"
@@ -72,21 +72,21 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
     """ The web mvc utils plugin """
 
     def load_plugin(self):
-        colony.base.plugin_system.Plugin.load_plugin(self)
+        colony.base.system.Plugin.load_plugin(self)
         import colony_site_main.main.system
         self.colony_site_main = colony_site_main.main.system.ColonySiteMain(self)
 
     def end_load_plugin(self):
-        colony.base.plugin_system.Plugin.end_load_plugin(self)
+        colony.base.system.Plugin.end_load_plugin(self)
         self.colony_site_main.load_components()
 
     def unload_plugin(self):
-        colony.base.plugin_system.Plugin.unload_plugin(self)
+        colony.base.system.Plugin.unload_plugin(self)
         self.colony_site_main.unload_components()
 
     @colony.base.decorators.inject_dependencies
     def dependency_injected(self, plugin):
-        colony.base.plugin_system.Plugin.dependency_injected(self, plugin)
+        colony.base.system.Plugin.dependency_injected(self, plugin)
 
     def get_patterns(self):
         """
