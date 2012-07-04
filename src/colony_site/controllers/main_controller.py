@@ -85,7 +85,8 @@ class MainController:
         # retrieves the current locale
         locale = self.get_locale(rest_request, AVAILABLE_LOCALES)
 
-        # processes the contents of the template file assigning the appropriate values to it
+        # processes the contents of the template file assigning the
+        # appropriate values to it
         template_file = self.retrieve_template_file(
             "general.html.tpl",
             partial_page = "general/index.html.tpl",
@@ -107,7 +108,8 @@ class MainController:
         # retrieves the current locale
         locale = self.get_locale(rest_request, AVAILABLE_LOCALES)
 
-        # processes the contents of the template file assigning the appropriate values to it
+        # processes the contents of the template file assigning the
+        # appropriate values to it
         template_file = self.retrieve_template_file(
             "general.html.tpl",
             partial_page = "general/landing.html.tpl",
