@@ -37,7 +37,7 @@ __copyright__ = "Copyright (c) 2008 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-COLONY_SITE_RESOURCES_PATH = "colony_site/main/resources"
+COLONY_SITE_RESOURCES_PATH = "colony_site_main/main/resources"
 """ The colony site resources path """
 
 EXTRAS_PATH = COLONY_SITE_RESOURCES_PATH + "/extras"
