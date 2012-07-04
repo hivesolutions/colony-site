@@ -2,7 +2,7 @@
     "type" : "plugin",
     "platform" : "python",
     "sub_platforms" : ["cpython"],
-    "id" : "pt.hive.colony_site.plugins.main",
+    "id" : "pt.hive.extra.plugins.colony_site",
     "name" : "Colony Site Main Plugin",
     "short_name" : "Colony Site Main",
     "description" : "The plugin that offers the colony web site",

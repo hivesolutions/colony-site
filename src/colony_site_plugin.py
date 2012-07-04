@@ -40,14 +40,14 @@ __license__ = "GNU General Public License (GPL), Version 3"
 import colony.base.system
 import colony.base.decorators
 
-class ColonySiteMainPlugin(colony.base.system.Plugin):
+class ColonySitePlugin(colony.base.system.Plugin):
     """
-    The main class for the Colony Site Main plugin.
+    The main class for the Colony Site plugin.
     """
 
-    id = "pt.hive.colony_site.plugins.main"
-    name = "Colony Site Main Plugin"
-    short_name = "Colony Site Main"
+    id = "pt.hive.extra.plugins.colony_site"
+    name = "Colony Site Plugin"
+    short_name = "Colony Site"
     description = "The plugin that offers the colony web site"
     version = "1.0.0"
     author = "Hive Solutions Lda. <development@hive.pt>"
@@ -65,8 +65,8 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
         "colony_site.main.system"
     ]
 
-    colony_site_main = None
-    """ The colony site main """
+    colony_site = None
+    """ The colony site """
 
     web_mvc_utils_plugin = None
     """ The web mvc utils plugin """
@@ -74,15 +74,15 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
     def load_plugin(self):
         colony.base.system.Plugin.load_plugin(self)
         import colony_site_main.main.system
-        self.colony_site_main = colony_site_main.main.system.ColonySiteMain(self)
+        self.colony_site = colony_site_main.main.system.ColonySite(self)
 
     def end_load_plugin(self):
         colony.base.system.Plugin.end_load_plugin(self)
-        self.colony_site_main.load_components()
+        self.colony_site.load_components()
 
     def unload_plugin(self):
         colony.base.system.Plugin.unload_plugin(self)
-        self.colony_site_main.unload_components()
+        self.colony_site.unload_components()
 
     @colony.base.decorators.inject_dependencies
     def dependency_injected(self, plugin):
@@ -99,7 +99,7 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
         to the web mvc service.
         """
 
-        return self.colony_site_main.get_patterns()
+        return self.colony_site.get_patterns()
 
     def get_communication_patterns(self):
         """
@@ -113,7 +113,7 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
         to the web mvc service.
         """
 
-        return self.colony_site_main.get_communication_patterns()
+        return self.colony_site.get_communication_patterns()
 
     def get_resource_patterns(self):
         """
@@ -126,7 +126,7 @@ class ColonySiteMainPlugin(colony.base.system.Plugin):
         to the web mvc service.
         """
 
-        return self.colony_site_main.get_resource_patterns()
+        return self.colony_site.get_resource_patterns()
 
     @colony.base.decorators.plugin_inject("pt.hive.colony.plugins.web.mvc.utils")
     def set_web_mvc_utils_plugin(self, web_mvc_utils_plugin):

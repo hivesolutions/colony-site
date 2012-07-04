@@ -37,29 +37,29 @@ __copyright__ = "Copyright (c) 2008 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-COLONY_SITE_MAIN_RESOURCES_PATH = "colony_site_main/main/resources"
-""" The colony site main resources path """
+COLONY_SITE_RESOURCES_PATH = "colony_site/main/resources"
+""" The colony site resources path """
 
-EXTRAS_PATH = COLONY_SITE_MAIN_RESOURCES_PATH + "/extras"
+EXTRAS_PATH = COLONY_SITE_RESOURCES_PATH + "/extras"
 """ The extras path """
 
-class ColonySiteMain:
+class ColonySite:
     """
-    The colony site main class.
+    The colony site class.
     """
 
-    colony_site_main_plugin = None
-    """ The colony site main plugin """
+    colony_site_plugin = None
+    """ The colony site plugin """
 
-    def __init__(self, colony_site_main_plugin):
+    def __init__(self, colony_site_plugin):
         """
         Constructor of the class.
 
-        @type colony_site_main_plugin: ColonySiteMainPlugin
-        @param colony_site_main_plugin: The colony site main plugin.
+        @type colony_site_plugin: ColonySitePlugin
+        @param colony_site_plugin: The colony site plugin.
         """
 
-        self.colony_site_main_plugin = colony_site_main_plugin
+        self.colony_site_plugin = colony_site_plugin
 
     def load_components(self):
         """
@@ -68,10 +68,10 @@ class ColonySiteMain:
         """
 
         # retrieves the web mvc utils plugin
-        web_mvc_utils_plugin = self.colony_site_main_plugin.web_mvc_utils_plugin
+        web_mvc_utils_plugin = self.colony_site_plugin.web_mvc_utils_plugin
 
         # creates the controllers and assigns them to the current instance
-        web_mvc_utils_plugin.assign_controllers(self, self.colony_site_main_plugin)
+        web_mvc_utils_plugin.assign_controllers(self, self.colony_site_plugin)
 
     def unload_components(self):
         """
@@ -80,7 +80,7 @@ class ColonySiteMain:
         """
 
         # retrieves the web mvc utils plugin
-        web_mvc_utils_plugin = self.colony_site_main_plugin.web_mvc_utils_plugin
+        web_mvc_utils_plugin = self.colony_site_plugin.web_mvc_utils_plugin
 
         # destroys the controllers, unregistering them from the internal structures
         web_mvc_utils_plugin.unassign_controllers(self)
@@ -128,11 +128,11 @@ class ColonySiteMain:
         """
 
         # retrieves the plugin manager
-        plugin_manager = self.colony_site_main_plugin.manager
+        plugin_manager = self.colony_site_plugin.manager
 
         # retrieves the colon site main plugin path
-        colony_site_main_plugin_path = plugin_manager.get_plugin_path_by_id(self.colony_site_main_plugin.id)
+        colony_site_plugin_path = plugin_manager.get_plugin_path_by_id(self.colony_site_plugin.id)
 
         return (
-            (r"^colony_site/resources/.+$", (colony_site_main_plugin_path + "/" + EXTRAS_PATH, "colony_site/resources")),
+            (r"^colony_site/resources/.+$", (colony_site_plugin_path + "/" + EXTRAS_PATH, "colony_site/resources")),
         )
