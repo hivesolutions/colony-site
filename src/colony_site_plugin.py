@@ -46,8 +46,7 @@ class ColonySitePlugin(colony.base.system.Plugin):
     """
 
     id = "pt.hive.extra.plugins.colony_site"
-    name = "Colony Site Plugin"
-    short_name = "Colony Site"
+    name = "Colony Site"
     description = "The plugin that offers the colony web site"
     version = "1.0.0"
     author = "Hive Solutions Lda. <development@hive.pt>"
