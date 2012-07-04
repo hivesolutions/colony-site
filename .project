@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>pt.hive.extra.plugins.colony_site</name>
+	<name>extra.plugins.colony_site</name>
 	<comment></comment>
 	<projects>
 		<project>pt.hive.colony</project>
