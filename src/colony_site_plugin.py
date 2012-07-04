@@ -45,7 +45,7 @@ class ColonySitePlugin(colony.base.system.Plugin):
     The main class for the Colony Site plugin.
     """
 
-    id = "pt.hive.extra.plugins.colony_site"
+    id = "pt.hive.cronus.plugins.colony_site"
     name = "Colony Site"
     description = "The plugin that offers the colony web site"
     version = "1.0.0"
