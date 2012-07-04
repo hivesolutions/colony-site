@@ -62,7 +62,7 @@ class ColonySitePlugin(colony.base.system.Plugin):
         colony.base.system.PluginDependency("pt.hive.colony.plugins.web.mvc.utils", "1.x.x")
     ]
     main_modules = [
-        "colony_site.main.system"
+        "colony_site.system"
     ]
 
     colony_site = None
@@ -73,8 +73,8 @@ class ColonySitePlugin(colony.base.system.Plugin):
 
     def load_plugin(self):
         colony.base.system.Plugin.load_plugin(self)
-        import colony_site_main.main.system
-        self.colony_site = colony_site_main.main.system.ColonySite(self)
+        import colony_site.system
+        self.colony_site = colony_site.system.ColonySite(self)
 
     def end_load_plugin(self):
         colony.base.system.Plugin.end_load_plugin(self)
