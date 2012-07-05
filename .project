@@ -3,7 +3,7 @@
 	<name>cronus.plugins.colony_site</name>
 	<comment></comment>
 	<projects>
-		<project>pt.hive.colony</project>
+		<project>colony</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
