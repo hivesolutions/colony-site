@@ -72,12 +72,12 @@ class MainController:
         self.colony_site_main_plugin = colony_site_main_plugin
         self.colony_site_main = colony_site_main
 
-    def handle_colony_index(self, rest_request, parameters = {}):
+    def handle_index(self, rest_request, parameters = {}):
         """
-        Handles the given colony index rest request.
+        Handles the given index rest request.
 
         @type rest_request: RestRequest
-        @param rest_request: The colony index rest request to be handled.
+        @param rest_request: The index rest request to be handled.
         @type parameters: Dictionary
         @param parameters: The handler parameters.
         """
@@ -95,12 +95,12 @@ class MainController:
         template_file.assign("title", "Colony Framework")
         self.process_set_contents(rest_request, template_file)
 
-    def handle_colony_landing(self, rest_request, parameters = {}):
+    def handle_landing(self, rest_request, parameters = {}):
         """
-        Handles the given colony landing rest request.
+        Handles the given landing rest request.
 
         @type rest_request: RestRequest
-        @param rest_request: The colony landing rest request to be handled.
+        @param rest_request: The landing rest request to be handled.
         @type parameters: Dictionary
         @param parameters: The handler parameters.
         """

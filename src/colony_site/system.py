@@ -56,10 +56,9 @@ class ColonySite(colony.base.system.System):
         This load should occur only after the dependencies are loaded.
         """
 
-        # retrieves the mvc utils plugin
+        # retrieves the mvc utils plugin and uses it to creates the
+        # controllers and assigning them to the current instance
         mvc_utils_plugin = self.plugin.mvc_utils_plugin
-
-        # creates the controllers and assigns them to the current instance
         mvc_utils_plugin.assign_controllers(self, self.plugin)
 
     def unload_components(self):
@@ -68,10 +67,9 @@ class ColonySite(colony.base.system.System):
         This load should occur the earliest possible in the unloading process.
         """
 
-        # retrieves the mvc utils plugin
+        # retrieves the mvc utils plugin and uses it to destroy the
+        # controllers, unregistering them from the internal structures
         mvc_utils_plugin = self.plugin.mvc_utils_plugin
-
-        # destroys the controllers, unregistering them from the internal structures
         mvc_utils_plugin.unassign_controllers(self)
 
     def get_patterns(self):
@@ -86,9 +84,9 @@ class ColonySite(colony.base.system.System):
         """
 
         return (
-            (r"^colony_site/?$", self.main_controller.handle_colony_landing, "get"),
-            (r"^colony_site/index$", self.main_controller.handle_colony_index, "get"),
-            (r"^colony_site/landing$", self.main_controller.handle_colony_landing, "get")
+            (r"^colony_site/?$", self.main_controller.handle_landing, "get"),
+            (r"^colony_site/index$", self.main_controller.handle_index, "get"),
+            (r"^colony_site/landing$", self.main_controller.handle_landing, "get")
         )
 
     def get_communication_patterns(self):
@@ -119,7 +117,7 @@ class ColonySite(colony.base.system.System):
         # retrieves the plugin manager
         plugin_manager = self.plugin.manager
 
-        # retrieves the colon site main plugin path
+        # retrieves the colony site main plugin path
         plugin_path = plugin_manager.get_plugin_path_by_id(self.plugin.id)
 
         return (
