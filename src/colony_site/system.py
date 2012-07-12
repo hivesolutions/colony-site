@@ -39,12 +39,6 @@ __license__ = "GNU General Public License (GPL), Version 3"
 
 import colony.base.system
 
-COLONY_SITE_RESOURCES_PATH = "colony_site/resources"
-""" The colony site resources path """
-
-EXTRAS_PATH = COLONY_SITE_RESOURCES_PATH + "/extras"
-""" The extras path """
-
 class ColonySite(colony.base.system.System):
     """
     The colony site class.
@@ -114,12 +108,11 @@ class ColonySite(colony.base.system.System):
         to the mvc service.
         """
 
-        # retrieves the plugin manager
+        # retrieves the plugin manager and uses it to retrieve
+        # the colony site main plugin path
         plugin_manager = self.plugin.manager
-
-        # retrieves the colony site main plugin path
         plugin_path = plugin_manager.get_plugin_path_by_id(self.plugin.id)
 
         return (
-            (r"^colony_site/resources/.+$", (plugin_path + "/" + EXTRAS_PATH, "colony_site/resources")),
+            (r"^colony_site/resources/.+$", (plugin_path + "/colony_site/resources/extras", "colony_site/resources")),
         )
