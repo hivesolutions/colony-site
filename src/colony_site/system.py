@@ -37,29 +37,18 @@ __copyright__ = "Copyright (c) 2008-2012 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
+import colony.base.system
+
 COLONY_SITE_RESOURCES_PATH = "colony_site/resources"
 """ The colony site resources path """
 
 EXTRAS_PATH = COLONY_SITE_RESOURCES_PATH + "/extras"
 """ The extras path """
 
-class ColonySite:
+class ColonySite(colony.base.system.System):
     """
     The colony site class.
     """
-
-    colony_site_plugin = None
-    """ The colony site plugin """
-
-    def __init__(self, colony_site_plugin):
-        """
-        Constructor of the class.
-
-        @type colony_site_plugin: ColonySitePlugin
-        @param colony_site_plugin: The colony site plugin.
-        """
-
-        self.colony_site_plugin = colony_site_plugin
 
     def load_components(self):
         """
@@ -68,10 +57,10 @@ class ColonySite:
         """
 
         # retrieves the mvc utils plugin
-        mvc_utils_plugin = self.colony_site_plugin.mvc_utils_plugin
+        mvc_utils_plugin = self.plugin.mvc_utils_plugin
 
         # creates the controllers and assigns them to the current instance
-        mvc_utils_plugin.assign_controllers(self, self.colony_site_plugin)
+        mvc_utils_plugin.assign_controllers(self, self.plugin)
 
     def unload_components(self):
         """
@@ -80,7 +69,7 @@ class ColonySite:
         """
 
         # retrieves the mvc utils plugin
-        mvc_utils_plugin = self.colony_site_plugin.mvc_utils_plugin
+        mvc_utils_plugin = self.plugin.mvc_utils_plugin
 
         # destroys the controllers, unregistering them from the internal structures
         mvc_utils_plugin.unassign_controllers(self)
@@ -128,11 +117,11 @@ class ColonySite:
         """
 
         # retrieves the plugin manager
-        plugin_manager = self.colony_site_plugin.manager
+        plugin_manager = self.plugin.manager
 
         # retrieves the colon site main plugin path
-        colony_site_plugin_path = plugin_manager.get_plugin_path_by_id(self.colony_site_plugin.id)
+        plugin_path = plugin_manager.get_plugin_path_by_id(self.plugin.id)
 
         return (
-            (r"^colony_site/resources/.+$", (colony_site_plugin_path + "/" + EXTRAS_PATH, "colony_site/resources")),
+            (r"^colony_site/resources/.+$", (plugin_path + "/" + EXTRAS_PATH, "colony_site/resources")),
         )
