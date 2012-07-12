@@ -44,32 +44,13 @@ AVAILABLE_LOCALES = (
 )
 """ The available locales """
 
-# runs the external imports
 mvc_utils = colony.libs.import_util.__import__("mvc_utils")
+controllers = colony.libs.import_util.__import__("controllers")
 
-class MainController:
+class MainController(controllers.Controller):
     """
-    The colony site main controller.
+    The colony site controller.
     """
-
-    colony_site_main_plugin = None
-    """ The colony site main plugin """
-
-    colony_site_main = None
-    """ The colony site main """
-
-    def __init__(self, colony_site_main_plugin, colony_site_main):
-        """
-        Constructor of the class.
-
-        @type colony_site_main_plugin: ColonySiteMainPlugin
-        @param colony_site_main_plugin: The colony site main plugin.
-        @type colony_site_main: ColonySiteMain
-        @param colony_site_main: The colony site main.
-        """
-
-        self.colony_site_main_plugin = colony_site_main_plugin
-        self.colony_site_main = colony_site_main
 
     def handle_index(self, rest_request, parameters = {}):
         """
