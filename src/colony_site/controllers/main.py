@@ -66,7 +66,6 @@ class MainController:
         @param colony_site_main_plugin: The colony site main plugin.
         @type colony_site_main: ColonySiteMain
         @param colony_site_main: The colony site main.
-
         """
 
         self.colony_site_main_plugin = colony_site_main_plugin
