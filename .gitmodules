@@ -1,3 +1,9 @@
 [submodule "src/colony_site/resources/extras/libs/jquery"]
 	path = src/colony_site/resources/extras/libs/jquery
 	url = git@github.com:hivesolutions/jquery.git
+[submodule "src/colony_site/resources/extras/libs/jquery_util"]
+	path = src/colony_site/resources/extras/libs/jquery_util
+	url = git@github.com:hivesolutions/jquery_util.git
+[submodule "src/colony_site/resources/extras/libs/jquery_util_ui"]
+	path = src/colony_site/resources/extras/libs/jquery_util_ui
+	url = git@github.com:hivesolutions/jquery_util_ui.git
