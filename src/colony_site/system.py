@@ -109,7 +109,7 @@ class ColonySite(colony.base.system.System):
         """
 
         # retrieves the plugin manager and uses it to retrieve
-        # the colony site plugin path
+        # the plugin path for resource path calculus
         plugin_manager = self.plugin.manager
         plugin_path = plugin_manager.get_plugin_path_by_id(self.plugin.id)
 
