@@ -1,0 +1,3 @@
+[submodule "src/colony_site/resources/extras/libs/jquery"]
+	path = src/colony_site/resources/extras/libs/jquery
+	url = git@github.com:hivesolutions/jquery.git
