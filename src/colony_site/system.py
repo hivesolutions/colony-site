@@ -78,24 +78,10 @@ class ColonySite(colony.base.system.System):
         """
 
         return (
-            (r"^colony_site/?$", self.main_controller.handle_landing, "get"),
-            (r"^colony_site/index$", self.main_controller.handle_index, "get"),
-            (r"^colony_site/landing$", self.main_controller.handle_landing, "get")
+            (r"colony_site/?", self.main_controller.handle_landing, "get"),
+            (r"colony_site/index", self.main_controller.handle_index, "get"),
+            (r"colony_site/landing", self.main_controller.handle_landing, "get")
         )
-
-    def get_communication_patterns(self):
-        """
-        Retrieves the tuple of regular expressions to be used as communication patterns,
-        to the mvc service. The tuple should relate the route with a tuple
-        containing the data handler, the connection changed handler and the name
-        of the connection.
-
-        @rtype: Tuple
-        @return: The tuple of regular expressions to be used as communication patterns,
-        to the mvc service.
-        """
-
-        return ()
 
     def get_resource_patterns(self):
         """
@@ -114,5 +100,5 @@ class ColonySite(colony.base.system.System):
         plugin_path = plugin_manager.get_plugin_path_by_id(self.plugin.id)
 
         return (
-            (r"^colony_site/resources/.+$", (plugin_path + "/colony_site/resources/extras", "colony_site/resources")),
+            (r"colony_site/resources/.+", (plugin_path + "/colony_site/resources/extras", "colony_site/resources")),
         )
