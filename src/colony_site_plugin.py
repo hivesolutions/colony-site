@@ -37,10 +37,9 @@ __copyright__ = "Copyright (c) 2008-2012 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-import colony.base.system
-import colony.base.decorators
+import colony
 
-class ColonySitePlugin(colony.base.system.Plugin):
+class ColonySitePlugin(colony.Plugin):
     """
     The main class for the Colony Site plugin.
     """
@@ -51,40 +50,30 @@ class ColonySitePlugin(colony.base.system.Plugin):
     version = "1.0.0"
     author = "Hive Solutions Lda. <development@hive.pt>"
     platforms = [
-        colony.base.system.CPYTHON_ENVIRONMENT
+        colony.CPYTHON_ENVIRONMENT
     ]
     capabilities = [
         "mvc_service"
     ]
     dependencies = [
-        colony.base.system.PluginDependency("pt.hive.colony.plugins.mvc.utils", "1.x.x")
+        colony.PluginDependency("pt.hive.colony.plugins.mvc.utils", "1.x.x")
     ]
     main_modules = [
         "colony_site.system"
     ]
 
-    colony_site = None
-    """ The colony site """
-
-    mvc_utils_plugin = None
-    """ The mvc utils plugin """
-
     def load_plugin(self):
-        colony.base.system.Plugin.load_plugin(self)
+        colony.Plugin.load_plugin(self)
         import colony_site.system
         self.colony_site = colony_site.system.ColonySite(self)
 
     def end_load_plugin(self):
-        colony.base.system.Plugin.end_load_plugin(self)
+        colony.Plugin.end_load_plugin(self)
         self.colony_site.load_components()
 
     def unload_plugin(self):
-        colony.base.system.Plugin.unload_plugin(self)
+        colony.Plugin.unload_plugin(self)
         self.colony_site.unload_components()
-
-    @colony.base.decorators.inject_dependencies
-    def dependency_injected(self, plugin):
-        colony.base.system.Plugin.dependency_injected(self, plugin)
 
     def get_patterns(self):
         """
@@ -99,20 +88,6 @@ class ColonySitePlugin(colony.base.system.Plugin):
 
         return self.colony_site.get_patterns()
 
-    def get_communication_patterns(self):
-        """
-        Retrieves the tuple of regular expressions to be used as communication patterns,
-        to the mvc service. The tuple should relate the route with a tuple
-        containing the data handler, the connection changed handler and the name
-        of the connection.
-
-        @rtype: Tuple
-        @return: The tuple of regular expressions to be used as communication patterns,
-        to the mvc service.
-        """
-
-        return self.colony_site.get_communication_patterns()
-
     def get_resource_patterns(self):
         """
         Retrieves the tuple of regular expressions to be used as resource patterns,
@@ -125,7 +100,3 @@ class ColonySitePlugin(colony.base.system.Plugin):
         """
 
         return self.colony_site.get_resource_patterns()
-
-    @colony.base.decorators.plugin_inject("pt.hive.colony.plugins.mvc.utils")
-    def set_mvc_utils_plugin(self, mvc_utils_plugin):
-        self.mvc_utils_plugin = mvc_utils_plugin
