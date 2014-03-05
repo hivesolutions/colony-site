@@ -56,7 +56,7 @@ class ColonySitePlugin(colony.Plugin):
         "mvc_service"
     ]
     dependencies = [
-        colony.PluginDependency("pt.hive.colony.plugins.mvc.utils", "1.x.x")
+        colony.PluginDependency("pt.hive.colony.plugins.mvc.utils")
     ]
     main_modules = [
         "colony_site.system"
