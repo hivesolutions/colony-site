@@ -37,9 +37,9 @@ __copyright__ = "Copyright (c) 2008-2014 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-import colony.base.system
+import colony
 
-class ColonySite(colony.base.system.System):
+class ColonySite(colony.System):
     """
     The colony site class.
     """
@@ -78,9 +78,9 @@ class ColonySite(colony.base.system.System):
         """
 
         return (
-            (r"colony_site/?", self.main_controller.handle_landing, "get"),
-            (r"colony_site/index", self.main_controller.handle_index, "get"),
-            (r"colony_site/landing", self.main_controller.handle_landing, "get")
+            (r"colony_site/?", self.main_controller.landing, "get"),
+            (r"colony_site/index", self.main_controller.index, "get"),
+            (r"colony_site/landing", self.main_controller.landing, "get")
         )
 
     def get_resource_patterns(self):

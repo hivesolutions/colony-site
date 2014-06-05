@@ -64,8 +64,8 @@ class ColonySitePlugin(colony.Plugin):
 
     def load_plugin(self):
         colony.Plugin.load_plugin(self)
-        import colony_site.system
-        self.colony_site = colony_site.system.ColonySite(self)
+        import colony_site
+        self.colony_site = colony_site.ColonySite(self)
 
     def end_load_plugin(self):
         colony.Plugin.end_load_plugin(self)
