@@ -42,7 +42,6 @@ import colony
 import base
 
 mvc_utils = colony.__import__("mvc_utils")
-controllers = colony.__import__("controllers")
 
 class MainController(base.BaseController):
 
