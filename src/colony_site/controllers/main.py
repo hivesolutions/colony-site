@@ -39,11 +39,11 @@ __license__ = "GNU General Public License (GPL), Version 3"
 
 import colony
 
-import base
+from .base import BaseController
 
 mvc_utils = colony.__import__("mvc_utils")
 
-class MainController(base.BaseController):
+class MainController(BaseController):
 
     def index(self, request):
         self._template(
