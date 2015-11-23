@@ -7,7 +7,7 @@
     <p>
         If you&apos;re crazy enough,<br/>
         check out the <a href="docs/colony/">early alpha documentation</a><br/>
-        or check our <a href="http://hivesolutions.dyndns.org/integration_public/LATEST_SUCCESS/">daily builds</a><br/>
+        or check our <a href="https://travis-ci.org/hivesolutions/colony">daily builds</a><br/>
         <a id="view-presentation" class="button">view presentation</a> <span id="view-or">or</span> <a id="view-video" class="button">view video</a>
         <div id="colony-presentation" class="presentation">
             <iframe src="http://www.slideshare.net/slideshow/embed_code/4421792" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
