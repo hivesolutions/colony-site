@@ -24,84 +24,84 @@
 // __license__   = GNU General Public License (GPL), Version 3
 
 jQuery(document).ready(function() {
-            // creates the video player elements
-            jQuery("video").player("default", {
-                        mini : true
-                    });
+    // creates the video player elements
+    jQuery("video").player("default", {
+        mini: true
+    });
 
-            // retrieves the view presentation
-            var viewPresenation = jQuery("#view-presentation");
+    // retrieves the view presentation
+    var viewPresenation = jQuery("#view-presentation");
 
-            // retrieves the view video
-            var viewVideo = jQuery("#view-video");
+    // retrieves the view video
+    var viewVideo = jQuery("#view-video");
 
-            // retrieves the view or
-            var viewOr = jQuery("#view-or");
+    // retrieves the view or
+    var viewOr = jQuery("#view-or");
 
-            // retrieves the colony video element
-            var colonyVideoElement = jQuery("#colony-promotional-video video");
+    // retrieves the colony video element
+    var colonyVideoElement = jQuery("#colony-promotional-video video");
 
-            // registers for the click event on the view presentation
-            viewPresenation.click(function(event) {
-                        // retrieves the colony presentation
-                        var colonyPresentation = jQuery("#colony-presentation");
+    // registers for the click event on the view presentation
+    viewPresenation.click(function(event) {
+        // retrieves the colony presentation
+        var colonyPresentation = jQuery("#colony-presentation");
 
-                        // removes the view presentation
-                        viewPresenation.remove();
+        // removes the view presentation
+        viewPresenation.remove();
 
-                        // removes the view or
-                        viewOr.remove();
+        // removes the view or
+        viewOr.remove();
 
-                        // shows the colony presentation
-                        colonyPresentation.show();
-                    });
+        // shows the colony presentation
+        colonyPresentation.show();
+    });
 
-            // registers for the click event on the view video
-            viewVideo.click(function(event) {
-                        // retrieves the colony video
-                        var colonyVideo = jQuery("#colony-promotional-video");
+    // registers for the click event on the view video
+    viewVideo.click(function(event) {
+        // retrieves the colony video
+        var colonyVideo = jQuery("#colony-promotional-video");
 
-                        // removes the view presentation
-                        viewVideo.remove();
+        // removes the view presentation
+        viewVideo.remove();
 
-                        // removes the view or
-                        viewOr.remove();
+        // removes the view or
+        viewOr.remove();
 
-                        // shows the colony video
-                        colonyVideo.show();
-                    });
+        // shows the colony video
+        colonyVideo.show();
+    });
 
-            // registers for the maximize event on the colony video element
-            colonyVideoElement.bind("maximize", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+    // registers for the maximize event on the colony video element
+    colonyVideoElement.bind("maximize", function(event) {
+        // retrieves the element
+        var element = jQuery(this);
 
-                        // retrieves the colony video
-                        var colonyVideo = jQuery("#colony-promotional-video");
+        // retrieves the colony video
+        var colonyVideo = jQuery("#colony-promotional-video");
 
-                        // retrieves the colony video with
-                        colonyVideoWidth = colonyVideo.width();
+        // retrieves the colony video with
+        colonyVideoWidth = colonyVideo.width();
 
-                        // animate the expanding of the video with
-                        colonyVideo.animate({
-                                    width : colonyVideoWidth * 1.5
-                                }, 350);
-                    });
+        // animate the expanding of the video with
+        colonyVideo.animate({
+            width: colonyVideoWidth * 1.5
+        }, 350);
+    });
 
-            // registers for the minimize event on the colony video element
-            colonyVideoElement.bind("minimize", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+    // registers for the minimize event on the colony video element
+    colonyVideoElement.bind("minimize", function(event) {
+        // retrieves the element
+        var element = jQuery(this);
 
-                        // retrieves the colony video
-                        var colonyVideo = jQuery("#colony-promotional-video");
+        // retrieves the colony video
+        var colonyVideo = jQuery("#colony-promotional-video");
 
-                        // retrieves the colony video with
-                        colonyVideoWidth = colonyVideo.width();
+        // retrieves the colony video with
+        colonyVideoWidth = colonyVideo.width();
 
-                        // animate the expanding of the video with
-                        colonyVideo.animate({
-                                    width : colonyVideoWidth / 1.5
-                                }, 350);
-                    });
-        });
+        // animate the expanding of the video with
+        colonyVideo.animate({
+            width: colonyVideoWidth / 1.5
+        }, 350);
+    });
+});
